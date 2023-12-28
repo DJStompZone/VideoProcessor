@@ -9,7 +9,7 @@
 `VideoProcessor` is a Python class designed to facilitate video processing tasks using FFmpeg. This class currently provides methods for extracting video and audio information, burning subtitles into videos, and concatenating multiple videos into a single file.
 
 ## Installation
-To use the `VideoProcessor` class, you need to have FFmpeg installed on your system. You can download FFmpeg from [here](https://ffmpeg.org/download.html).
+To use the `VideoProcessor` class, you need to have FFmpeg installed on your system. You can download FFmpeg [here](https://ffmpeg.org/download.html).
 
 ## Class Methods
 - `get_video_info()`: Extracts video information using ffprobe.

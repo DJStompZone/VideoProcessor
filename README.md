@@ -1,6 +1,10 @@
 
 # VideoProcessor
 
+![GitHub release (with filter)](https://img.shields.io/github/v/release/djstompzone/videoprocessor) [![Python package](https://github.com/DJStompZone/VideoProcessor/actions/workflows/python-package.yml/badge.svg)](https://github.com/DJStompZone/VideoProcessor/actions/workflows/python-package.yml) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/djstompzone/videoprocessor) ![GitHub License](https://img.shields.io/github/license/djstompzone/VideoProcessor) 
+
+
+
 ## Introduction
 `VideoProcessor` is a Python class designed to facilitate video processing tasks using FFmpeg. This class currently provides methods for extracting video and audio information, burning subtitles into videos, and concatenating multiple videos into a single file.
 

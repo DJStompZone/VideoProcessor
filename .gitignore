@@ -2,3 +2,5 @@ __pycache__/
 dist/
 *.pyc
 *.pyo
+*.mp4
+*.txt

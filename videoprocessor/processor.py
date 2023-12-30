@@ -1,7 +1,8 @@
 import argparse
 import json
+import os
 import subprocess
-from tempfile import NamedTemporaryFile
+from datetime import datetime as dt
 from typing import List
 
 from data_types import Stream, VideoInfo
@@ -212,14 +213,18 @@ class VideoProcessor:
         result = subprocess.run(ffmpeg_cmd, shell=True)
         return result.returncode
 
-    def concatenate_videos(self, input_videos: List[str], output_path: str) -> int:
+    @staticmethod
+    def concatenate_videos(input_videos: List[str], output_path: str) -> int:
         """Concatenates multiple videos into a single video file.
 
         Args:
             input_videos (List[str]): A list of paths to the input video files.
             output_path (str): Path for the output concatenated video file.
         """
-        with NamedTemporaryFile(mode="w+", delete=True) as temp_file:
+        # with NamedTemporaryFile(mode="w+", delete=True) as temp_file:
+        temp_filename = f"temp_{int(dt.timestamp(dt.now()))}.txt"
+        result = None
+        with open(temp_filename, "w+") as temp_file:
             for video in input_videos:
                 _ = temp_file.write(f"file '{video}'\n")
             temp_file.flush()
@@ -228,7 +233,8 @@ class VideoProcessor:
                 f"ffmpeg -f concat -safe 0 -i {temp_file.name} -c copy {output_path}"
             )
             result = subprocess.run(ffmpeg_cmd, shell=True)
-            return result.returncode
+        os.remove(temp_filename)
+        return result.returncode
 
     @staticmethod
     def main():
